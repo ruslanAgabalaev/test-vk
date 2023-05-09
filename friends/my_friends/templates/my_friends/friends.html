@@ -1,0 +1,16 @@
+{% extends 'my_friends/base.html' %}
+{% block title %}
+<h1></h1>
+{% endblock %}
+
+{% block body %}
+  <h2>Friends List</h2>
+  <ul>
+    {% for friend in friends %}
+      <li><a href="{% url 'friend_detail' friend.pk %}">{{ friend.first_name }} {{ friend.last_name }}</a></li>
+    {% empty %}
+      <li>No friends found.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'friends_create' %}">Create new friend</a>
+{% endblock %}
